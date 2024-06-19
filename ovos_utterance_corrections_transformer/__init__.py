@@ -18,14 +18,15 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
         context = context or {}
 
         # replace full utterance
-        replacement, conf = match_one(utterances[0], self.db)  # TODO - match strategy from conf
-        if conf >= 0.85:  # TODO make configurable
-            return [replacement], context
+        if utterances and self.db:
+            replacement, conf = match_one(utterances[0], self.db)  # TODO - match strategy from conf
+            if conf >= 0.85:  # TODO make configurable
+                return [replacement], context
 
         # replace individual words
-        for idx in range(len(utterances)):
-            for w, r in self.words_db.items():
-                utterances[idx] = utterances[idx].replace(w, r)
+        if utterances and self.words_db:
+            for idx in range(len(utterances)):
+                for w, r in self.words_db.items():
+                    utterances[idx] = utterances[idx].replace(w, r)
 
         return utterances, context
-
