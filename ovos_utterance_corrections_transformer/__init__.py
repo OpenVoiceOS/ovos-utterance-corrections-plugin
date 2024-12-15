@@ -1,4 +1,4 @@
-import re
+import regex  # Use the regex module instead of re
 from typing import List, Optional
 
 from json_database import JsonStorage
@@ -32,22 +32,32 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
 
         # Step 2: Apply regex replacements
         if utterances and self.regex_db:
-            flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
+            flags = regex.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for pattern, replacement in self.regex_db.items():
                     LOG.debug(f"Applying regex pattern: {pattern}")
                     try:
-                        utterances[idx] = re.sub(pattern, replacement, utterances[idx], flags=flags)
-                    except re.error as e:
+                        # Validate pattern length
+                        if len(pattern) > 1000:
+                            LOG.warning(f"Skipping oversized pattern: {pattern}")
+                            continue
+
+                        # Compile pattern with timeout
+                        compiled_pattern = regex.compile(pattern, flags=flags, timeout=1.0)
+                        utterances[idx] = compiled_pattern.sub(replacement, utterances[idx])
+
+                    except regex.error as e:
                         LOG.error(f"Invalid regex pattern: {pattern} -> {e}")
+                    except TimeoutError:
+                        LOG.error(f"Regex pattern timed out: {pattern}")
 
         # Step 3: Replace individual words
         if utterances and self.words_db:
-            flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
+            flags = regex.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for w, r in self.words_db.items():
                     LOG.debug(f"Applying word replacement: {w} -> {r}")
                     # Use regex to ensure replacements are surrounded by word boundaries
-                    utterances[idx] = re.sub(rf"\b{re.escape(w)}\b", r, utterances[idx], flags=flags)
+                    utterances[idx] = regex.sub(rf"\b{regex.escape(w)}\b", r, utterances[idx], flags=flags)
 
         return utterances, context
