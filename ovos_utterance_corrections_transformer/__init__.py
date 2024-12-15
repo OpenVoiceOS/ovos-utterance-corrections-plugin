@@ -6,6 +6,7 @@ from ovos_config.meta import get_xdg_base
 from ovos_plugin_manager.templates.transformers import UtteranceTransformer
 from ovos_utils.parse import match_one, MatchStrategy
 from ovos_utils.xdg_utils import xdg_data_home
+from ovos_utils.log import LOG
 
 
 class UtteranceCorrectionsPlugin(UtteranceTransformer):
@@ -36,7 +37,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
                     try:
                         utterances[idx] = re.sub(pattern, replacement, utterances[idx], flags=flags)
                     except re.error as e:
-                        print(f"Invalid regex pattern: {pattern} -> {e}")
+                        LOG.error(f"Invalid regex pattern: {pattern} -> {e}")
 
         # Step 3: Replace individual words
         if utterances and self.words_db:
