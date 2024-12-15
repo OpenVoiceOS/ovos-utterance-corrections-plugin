@@ -43,7 +43,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
                             continue
 
                         # Compile pattern with timeout
-                        compiled_pattern = regex.compile(pattern, flags=flags, timeout=1.0)
+                        compiled_pattern = regex.compile(pattern, flags=flags)
                         utterances[idx] = compiled_pattern.sub(replacement, utterances[idx])
 
                     except regex.error as e:

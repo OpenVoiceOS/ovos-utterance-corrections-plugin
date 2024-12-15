@@ -30,10 +30,20 @@ def get_version():
     return version
 
 
+def required(requirements_file):
+    """ Read requirements file and remove comments and empty lines. """
+    with open(os.path.join(BASEDIR, requirements_file), 'r') as f:
+        requirements = f.read().splitlines()
+        if 'MYCROFT_LOOSE_REQUIREMENTS' in os.environ:
+            print('USING LOOSE REQUIREMENTS!')
+            requirements = [r.replace('==', '>=').replace('~=', '>=') for r in requirements]
+        return [pkg for pkg in requirements
+                if pkg.strip() and not pkg.startswith("#")]
+
+
 UTTERANCE_ENTRY_POINT = (
     'ovos-utterance-corrections-plugin=ovos_utterance_corrections_transformer:UtteranceCorrectionsPlugin'
 )
-
 
 setup(
     name='ovos-utterance-corrections-plugin',
@@ -44,6 +54,7 @@ setup(
     license='apache-2.0',
     packages=['ovos_utterance_corrections_transformer'],
     include_package_data=True,
+    install_requires=required("requirements.txt"),
     zip_safe=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
