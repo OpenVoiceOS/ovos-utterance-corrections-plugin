@@ -15,8 +15,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
         self.db = JsonStorage(path=f"{xdg_data_home()}/{get_xdg_base()}/corrections.json")
         self.words_db = JsonStorage(path=f"{xdg_data_home()}/{get_xdg_base()}/word_corrections.json")
         self.regex_db = JsonStorage(path=f"{xdg_data_home()}/{get_xdg_base()}/regex_corrections.json")
-        self.confidence_threshold = 0.85  # Default threshold, configurable
-        self.match_strategy = MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY
+        self.match_strategy = MatchStrategy.DAMERAU_LEVENSHTEIN_SIMILARITY  # TODO - from config
 
     def transform(self, utterances: List[str], context: Optional[dict] = None) -> (list, dict):
         context = context or {}
@@ -26,22 +25,25 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
             replacement, conf = match_one(
                 utterances[0], self.db, strategy=self.match_strategy
             )
-            if conf >= self.confidence_threshold:
+            if conf >= self.config.get("thresh", 0.85):
                 return [replacement], context
 
         # Step 2: Apply regex replacements
         if utterances and self.regex_db:
+            flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for pattern, replacement in self.regex_db.items():
                     try:
-                        utterances[idx] = re.sub(pattern, replacement, utterances[idx])
+                        utterances[idx] = re.sub(pattern, replacement, utterances[idx], flags=flags)
                     except re.error as e:
                         print(f"Invalid regex pattern: {pattern} -> {e}")
 
         # Step 3: Replace individual words
         if utterances and self.words_db:
+            flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for w, r in self.words_db.items():
-                    utterances[idx] = utterances[idx].replace(w, r)
+                    # Use regex to ensure replacements are surrounded by word boundaries
+                    utterances[idx] = re.sub(rf"\b{re.escape(w)}\b", r, utterances[idx], flags=flags)
 
         return utterances, context
