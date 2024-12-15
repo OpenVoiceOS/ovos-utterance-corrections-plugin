@@ -27,6 +27,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
                 utterances[0], self.db, strategy=self.match_strategy
             )
             if conf >= self.config.get("thresh", 0.85):
+                LOG.debug(f"Applying utterance replacement: {utterances[0]} -> {replacement}")
                 return [replacement], context
 
         # Step 2: Apply regex replacements
@@ -34,6 +35,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
             flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for pattern, replacement in self.regex_db.items():
+                    LOG.debug(f"Applying regex pattern: {pattern}")
                     try:
                         utterances[idx] = re.sub(pattern, replacement, utterances[idx], flags=flags)
                     except re.error as e:
@@ -44,6 +46,7 @@ class UtteranceCorrectionsPlugin(UtteranceTransformer):
             flags = re.IGNORECASE if self.config.get("ignore_case", True) else 0
             for idx in range(len(utterances)):
                 for w, r in self.words_db.items():
+                    LOG.debug(f"Applying word replacement: {w} -> {r}")
                     # Use regex to ensure replacements are surrounded by word boundaries
                     utterances[idx] = re.sub(rf"\b{re.escape(w)}\b", r, utterances[idx], flags=flags)
 
