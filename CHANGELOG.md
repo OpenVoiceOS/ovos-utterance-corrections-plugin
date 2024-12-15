@@ -1,12 +1,12 @@
 # Changelog
 
-## [0.0.2a1](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.0.2a1) (2024-09-11)
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.0a1) (2024-12-15)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.0.0...0.0.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.0.2...0.1.0a1)
 
 **Merged pull requests:**
 
-- Update version.py [\#5](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/5) ([JarbasAl](https://github.com/JarbasAl))
+- feat:regex corrections [\#7](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/7) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
