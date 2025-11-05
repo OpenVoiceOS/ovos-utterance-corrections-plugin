@@ -46,7 +46,7 @@ UTTERANCE_ENTRY_POINT = (
 )
 
 setup(
-    name='ovos-utterance-corrections-plugin',
+    name='ovos_utterance_corrections_plugin',
     version=get_version(),
     author='jarbasai',
     author_email='jarbasai@mailfence.com',
