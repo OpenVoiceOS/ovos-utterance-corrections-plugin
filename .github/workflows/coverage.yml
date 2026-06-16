@@ -13,5 +13,5 @@ jobs:
       python_version: '3.11'
       coverage_source: 'ovos_utterance_corrections_transformer'
       test_path: 'tests'
-      install_extras: '-r tests/requirements.txt'
+      install_extras: '.[test]'
       min_coverage: 0
