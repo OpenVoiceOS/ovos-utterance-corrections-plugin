@@ -23,12 +23,8 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-    "coveralls==1.8.2",
-    "flake8==3.7.9",
-    "pytest==8.2.2",
-    "pytest-cov==2.8.1",
-    "cov-core==1.15.0",
-    "ovos-plugin-manager>=2.1.0,<3.0.0"
+    "pytest",
+    "pytest-cov"
 ]
 
 [project.urls]
