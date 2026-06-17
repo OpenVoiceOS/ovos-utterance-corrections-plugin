@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3a5](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a5) (2026-06-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a2...0.1.3a5)
+
+**Merged pull requests:**
+
+- chore: add missing shared CI workflows [\#23](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/23) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.3a2](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a2) (2025-12-19)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a1...0.1.3a2)
