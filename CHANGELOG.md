@@ -1,12 +1,36 @@
 # Changelog
 
-## [0.1.2a1](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.2a1) (2025-11-05)
+## [0.1.3a6](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a6) (2026-08-01)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.1...0.1.2a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a5...0.1.3a6)
 
 **Merged pull requests:**
 
-- Update requirements.txt [\#12](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/12) ([JarbasAl](https://github.com/JarbasAl))
+- docs: rewrite README in Simplified Technical English [\#25](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/25) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.3a5](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a5) (2026-06-17)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a2...0.1.3a5)
+
+**Merged pull requests:**
+
+- chore: add missing shared CI workflows [\#23](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/23) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.3a2](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a2) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a1...0.1.3a2)
+
+**Merged pull requests:**
+
+- Update dependency python to 3.14 [\#16](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/16) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.1.3a1](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a1) (2025-12-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.2...0.1.3a1)
+
+**Merged pull requests:**
+
+- Configure Renovate [\#14](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/14) ([renovate[bot]](https://github.com/apps/renovate))
 
 
 

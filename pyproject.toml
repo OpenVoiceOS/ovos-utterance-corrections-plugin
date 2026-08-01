@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ovos_utterance_corrections_plugin"
+dynamic = ["version"]
+authors = [
+    {name = "jarbasai", email = "jarbasai@mailfence.com"}
+]
+license = "Apache-2.0"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Text Processing :: Linguistic",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6"
+]
+dependencies = [
+    "ovos-plugin-manager>=2.1.0,<3.0.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov"
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin"
+
+[project.entry-points."opm.transformer.text"]
+"ovos-utterance-corrections-plugin" = "ovos_utterance_corrections_transformer:UtteranceCorrectionsPlugin"
+
+[tool.setuptools.dynamic]
+version = {attr = "ovos_utterance_corrections_transformer.version.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ovos_utterance_corrections_transformer*"]
