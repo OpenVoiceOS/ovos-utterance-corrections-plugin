@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3a6](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a6) (2026-08-01)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a5...0.1.3a6)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#25](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/25) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.3a5](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a5) (2026-06-17)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a2...0.1.3a5)
