@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.3a7](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a7) (2026-09-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a6...0.1.3a7)
+
+**Merged pull requests:**
+
+- chore\(ci\): drop the broken Dependabot config [\#27](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/27) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.3a6](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a6) (2026-08-01)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a5...0.1.3a6)
