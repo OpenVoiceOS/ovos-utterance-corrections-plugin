@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4a1](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.4a1) (2026-10-22)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a7...0.1.4a1)
+
+**Merged pull requests:**
+
+- fix\(deps\): accept ovos-plugin-manager 3 [\#29](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/pull/29) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.1.3a7](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/tree/0.1.3a7) (2026-09-26)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-utterance-corrections-plugin/compare/0.1.3a6...0.1.3a7)
